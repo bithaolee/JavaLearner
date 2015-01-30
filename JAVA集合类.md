@@ -14,8 +14,75 @@
 		- EnumSet（专为枚举类设置的） 
 					
 
-2. List集合
+2. List集合（判断两个元素是否相等的标准是通过比较`equals()`方法的返回值，删除元素时以此做判断）
+	- 迭代器（ListEterator）
+	- ArrayList
+	- Vector(不要再用了)
+	- LinkedList(还继承了Deque)，双向链表
+
+3. Queue（队列）
+	- PriorityQueue
+		- 按照元素大小排序，并进行操作，而非按加入的先后顺序
+		- 排序的规则参照TreeSet
+	- Deque(双端队列，接口)
+		- ArrayDeque
+
+4. Map(同一个map中的key对象不能重复，通过key对象的equals()方法来判断)，其实Map和Set有很多相似之处，可以理解为，Map忽略掉value值和Set基本相同
+	- HashMap
+		- 判断key值是否相等，和HashSet的判断方法一致
+		- 判断value的值是否相等，只需判断equals()方法即可
+		- LinkedHashMap
+			- 保证迭代顺序
+	- TreeMap
+		- key的行为和TreeSet的一致
+	- IdentityHashMap
+		- 对于key的值需要严格相等，及内存地址一样（key1==key2）
+	- Hashtable(不要再用了)
+	- EnumMap
+
+5. 操作集合类的工具
+	- 排序操作
+		- reverse()
+		- shuffle()
+		- sort()
+		- sort()
+		- swap()
+		- retate()
+	- 查找替换
+		- binarySearch()
+		- max()
+		- max()
+		- min()
+		- min()
+		- fill()
+		- frequency()
+		- indexOfSubList()
+		- lastIndexOfSubList()
+		- replaceAll()
+	- 同步（包装集合对象为线程安全的）
+		- synchronizedList(集合对象)
+		- synchronizedMap()
+		- synchronizedSet()
+
+6. 设置不可变集合
+	- emptyXxx()  //返回一空的、不可变集合
+	- singletonXxx()  //返回一个值包含指定对象的
+	- unmodifiableXxx()  //返回指定集合的不可变视图
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
