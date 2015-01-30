@@ -284,7 +284,13 @@ Object（都只能是监视器对象调用）
 
 
 
+##泛型
+notice：
+	- 在静态方法、静态块、静态变量中不能使用类型形参
 
 
 
-
+##强制垃圾回收（只是通知系统回收，并不确定一定回收）
+1. System.gc();
+2. Runtime.getRuntime().gc();
+3. Object的`finalize()`析构方法，在gc之前才执行
