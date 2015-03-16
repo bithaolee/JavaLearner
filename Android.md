@@ -240,7 +240,22 @@
 		- 获得相应的程序的上下文Context,通过`createPackageContext()`
 
 - File存储
-	- 流相关的知识......
+	- FileInputStream openFileInput(String name)
+	- FileOutputStream openFileOutputStream(String name, int mode);  //mode的值如下
+		- MODE_PRIVATE
+		- MODE_APPEND
+		- MODE_WORLD_READABLE
+		- MODE_WORLD_WRITEABLE
+
+	- Context的几个常用方法
+		- getDir(String name, int mode)
+		- File getFilesDir()
+		- String[] fileList()
+		- deleteFile(String)
+	- 操作SD卡
+		- Environment
+			- getExternalStorageState() //返回SD卡的状态，Environment.MDEIA_MOUNTED
+			- File getExternalStorageDirectory()
 - Sqlite存储
 1. 常用类
 	- SQLiteDatabase (操作数据库的方法集)
@@ -303,10 +318,38 @@
 	- abortBroadcast()  //取消广播的继续传播
 
 
+##Android网络应用（Socket特质客户端的，服务器端代码忽略）
+1. Socket
+	- InputStream getInputStream()
+	- OutputStream getOutputStream()
 
+2. URL，URLConnection(参见JAVA_NET)
 
+3. 使用HTTP访问网络
+	- HttpURLConnection（继承自URLConnection）
+		- int getResponseCode()
+		- String getResponseMessage()
+		- String getRequestMethod()
+		- void setRequestMethod(String method)
 
-
+	- HttpClient
+		1. 实例化连接对象
+			- HttpClient getClient = new DefaultHttpClient();（获取对象）
+		2. 实例化请求对象
+			- HttpGet
+				- HttpGet request = new HttpGet(uri);
+			- HttpPost
+				- HttpPost request = new HttpPost(uri);
+				- request.add()
+		3. 获取返回对象
+			- HttpResponse response = getClient.execute(request);
+			- 参数传递：
+				- List<NameValuePair> postParameter = new ArrayList<NameValuePair>();
+				- postParameter.add(new BasicNameValuePair(key, value));
+				- HttpEntity postEntity = new UrlEncodedFormEntity(postParameter);
+				- request.setEntity(postEntity);
+				- 其余操作与get一致...
+			
 
 
 
